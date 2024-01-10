@@ -1,0 +1,550 @@
+{
+    "type": [
+        {
+            "label": "All",
+            "value": "all"
+        },
+        {
+            "label": "Groom Biodata",
+            "value": "groom"
+        },
+        {
+            "label": "Bride Biodata",
+            "value": "bride"
+        }
+    ],
+    "age": [
+        {
+            "label": "All",
+            "value": "all"
+        },
+        {
+            "label": "18",
+            "value": "18"
+        },
+        {
+            "label": "19",
+            "value": "19"
+        },
+        {
+            "label": "20",
+            "value": "20"
+        },
+        {
+            "label": "21",
+            "value": "21"
+        },
+        {
+            "label": "22",
+            "value": "22"
+        },
+        {
+            "label": "23",
+            "value": "23"
+        },
+        {
+            "label": "24",
+            "value": "24"
+        },
+        {
+            "label": "25",
+            "value": "25"
+        },
+        {
+            "label": "26",
+            "value": "26"
+        },
+        {
+            "label": "27",
+            "value": "27"
+        },
+        {
+            "label": "28",
+            "value": "28"
+        },
+        {
+            "label": "29",
+            "value": "29"
+        },
+        {
+            "label": "30",
+            "value": "30"
+        },
+        {
+            "label": "31",
+            "value": "31"
+        },
+        {
+            "label": "32",
+            "value": "32"
+        },
+        {
+            "label": "33",
+            "value": "33"
+        },
+        {
+            "label": "34",
+            "value": "34"
+        },
+        {
+            "label": "35",
+            "value": "35"
+        },
+        {
+            "label": "36",
+            "value": "36"
+        },
+        {
+            "label": "37",
+            "value": "37"
+        },
+        {
+            "label": "38",
+            "value": "38"
+        },
+        {
+            "label": "39",
+            "value": "39"
+        },
+        {
+            "label": "40",
+            "value": "40"
+        },
+        {
+            "label": "41",
+            "value": "41"
+        }
+    ],
+    "maritalStatus": [
+        {
+            "label": "All",
+            "value": "all"
+        },
+        {
+            "label": "Single",
+            "value": "single"
+        },
+        {
+            "label": "Married",
+            "value": "married"
+        },
+        {
+            "label": "Divorced",
+            "value": "divorced"
+        }
+    ],
+    "motherTongue": [
+        {
+            "label": "All",
+            "value": "all"
+        },
+        {
+            "label": "Hindi",
+            "value": "hindi"
+        },
+        {
+            "label": "Bengali",
+            "value": "bengali"
+        },
+        {
+            "label": "Telugu",
+            "value": "telugu"
+        },
+        {
+            "label": "Marathi",
+            "value": "marathi"
+        },
+        {
+            "label": "Tamil",
+            "value": "tamil"
+        },
+        {
+            "label": "Urdu",
+            "value": "urdu"
+        },
+        {
+            "label": "Gujarati",
+            "value": "gujarati"
+        },
+        {
+            "label": "Kannada",
+            "value": "kannada"
+        },
+        {
+            "label": "Odia",
+            "value": "odia"
+        },
+        {
+            "label": "Malayalam",
+            "value": "malayalam"
+        },
+        {
+            "label": "Punjabi",
+            "value": "punjabi"
+        },
+        {
+            "label": "Assamese",
+            "value": "assamese"
+        },
+        {
+            "label": "Maithili",
+            "value": "maithili"
+        },
+        {
+            "label": "Sanskrit",
+            "value": "sanskrit"
+        },
+        {
+            "label": "Other",
+            "value": "other"
+        }
+    ],
+    "profession": [
+        {
+            "label": "All",
+            "value": "all"
+        },
+        {
+            "label": "Student",
+            "value": "student"
+        },
+        {
+            "label": "Hafez",
+            "value": "hafez"
+        },
+        {
+            "label": "Alim",
+            "value": "alim"
+        },
+        {
+            "label": "Alimah",
+            "value": "alimah"
+        },
+        {
+            "label": "Mufti",
+            "value": "mufti"
+        },
+        {
+            "label": "Imam",
+            "value": "imam"
+        },
+        {
+            "label": "Adib",
+            "value": "adib"
+        },
+        {
+            "label": "Islamic Scholar",
+            "value": "islamic_scholar"
+        },
+        {
+            "label": "Teacher",
+            "value": "teacher"
+        },
+        {
+            "label": "Doctor",
+            "value": "doctor"
+        },
+        {
+            "label": "Engineer",
+            "value": "engineer"
+        },
+        {
+            "label": "Lawyer",
+            "value": "lawyer"
+        },
+        {
+            "label": "Business",
+            "value": "business"
+        },
+        {
+            "label": "Self Employed",
+            "value": "selfEmployed"
+        },
+        {
+            "label": "Home Maker",
+            "value": "homeMaker"
+        },
+        {
+            "label": "Other",
+            "value": "other"
+        }
+    ],
+    "cast": [
+        {
+            "label": "All",
+            "value": "all"
+        },
+        {
+            "label": "Sunni",
+            "value": "sunni"
+        },
+        {
+            "label": "Shia",
+            "value": "shia"
+        },
+        {
+            "label": "Other",
+            "value": "other"
+        }
+    ],
+    "subCast": [
+        {
+            "label": "All",
+            "value": "all"
+        },
+        {
+            "label": "Ahle Hadith/Salafi",
+            "value": "ahlehadith_salafi"
+        },
+        {
+            "label": "Hanafi",
+            "value": "hanafi"
+        },
+        {
+            "label": "Shafi",
+            "value": "shafi"
+        },
+        {
+            "label": "Maliki",
+            "value": "maliki"
+        },
+        {
+            "label": "Hanbali",
+            "value": "hanbali"
+        },
+        {
+            "label": "Other",
+            "value": "other"
+        }
+    ],
+    "height": [
+        {
+            "label": "All",
+            "value": "all"
+        },
+        {
+            "label": "4ft-",
+            "value": "lessthan4ft"
+        },
+        {
+            "label": "4ft 0in",
+            "value": "4ft 0in"
+        },
+        {
+            "label": "4ft 1in",
+            "value": "4ft 1in"
+        },
+        {
+            "label": "4ft 2in",
+            "value": "4ft 2in"
+        },
+        {
+            "label": "4ft 3in",
+            "value": "4ft 3in"
+        },
+        {
+            "label": "4ft 4in",
+            "value": "4ft 4in"
+        },
+        {
+            "label": "4ft 5in",
+            "value": "4ft 5in"
+        },
+        {
+            "label": "4ft 6in",
+            "value": "4ft 6in"
+        },
+        {
+            "label": "4ft 7in",
+            "value": "4ft 7in"
+        },
+        {
+            "label": "4ft 8in",
+            "value": "4ft 8in"
+        },
+        {
+            "label": "4ft 9in",
+            "value": "4ft 9in"
+        },
+        {
+            "label": "4ft 10in",
+            "value": "4ft 10in"
+        },
+        {
+            "label": "4ft 11in",
+            "value": "4ft 11in"
+        },
+        {
+            "label": "5ft 0in",
+            "value": "5ft 0in"
+        },
+        {
+            "label": "5ft 1in",
+            "value": "5ft 1in"
+        },
+        {
+            "label": "5ft 2in",
+            "value": "5ft 2in"
+        },
+        {
+            "label": "5ft 3in",
+            "value": "5ft 3in"
+        },
+        {
+            "label": "5ft 4in",
+            "value": "5ft 4in"
+        },
+        {
+            "label": "5ft 5in",
+            "value": "5ft 5in"
+        },
+        {
+            "label": "5ft 6in",
+            "value": "5ft 6in"
+        },
+        {
+            "label": "5ft 7in",
+            "value": "5ft 7in"
+        },
+        {
+            "label": "5ft 8in",
+            "value": "5ft 8in"
+        },
+        {
+            "label": "5ft 9in",
+            "value": "5ft 9in"
+        },
+        {
+            "label": "5ft 10in",
+            "value": "5ft 10in"
+        },
+        {
+            "label": "5ft 11in",
+            "value": "5ft 11in"
+        },
+        {
+            "label": "6ft 0in",
+            "value": "6ft 0in"
+        },
+        {
+            "label": "6ft 1in",
+            "value": "6ft 1in"
+        },
+        {
+            "label": "6ft 2in",
+            "value": "6ft 2in"
+        },
+        {
+            "label": "6ft 3in",
+            "value": "6ft 3in"
+        },
+        {
+            "label": "6ft 4in",
+            "value": "6ft 4in"
+        },
+        {
+            "label": "6ft 5in",
+            "value": "6ft 5in"
+        },
+        {
+            "label": "6ft 6in",
+            "value": "6ft 6in"
+        },
+        {
+            "label": "6ft 7in",
+            "value": "6ft 7in"
+        },
+        {
+            "label": "6ft 8in",
+            "value": "6ft 8in"
+        },
+        {
+            "label": "6ft 9in",
+            "value": "6ft 9in"
+        },
+        {
+            "label": "6ft 10in",
+            "value": "6ft 10in"
+        },
+        {
+            "label": "6ft 11in",
+            "value": "6ft 11in"
+        },
+        {
+            "label": "7ft 0in",
+            "value": "7ft 0in"
+        },
+        {
+            "label": "7ft+",
+            "value": "morethan7ft"
+        }
+    ],
+    "education": [
+        {
+            "label": "All",
+            "value": "all"
+        },
+        {
+            "label": "General",
+            "value": "general"
+        },
+        {
+            "label": "Alia",
+            "value": "alia"
+        },
+        {
+            "label": "Qawmi",
+            "value": "qawmi"
+        },
+        {
+            "label": "Diploma",
+            "value": "diploma"
+        },
+        {
+            "label": "Undergraduate",
+            "value": "undergraduate"
+        },
+        {
+            "label": "Honours degree",
+            "value": "honours_degree"
+        },
+        {
+            "label": "High school",
+            "value": "high_school"
+        },
+        {
+            "label": "Less than high school",
+            "value": "less_than_high_school"
+        },
+        {
+            "label": "Other",
+            "value": "other"
+        }
+    ],
+    "complexion": [
+        {
+            "label": "All",
+            "value": "all"
+        },
+        {
+            "label": "Very Fair",
+            "value": "very_fair"
+        },
+        {
+            "label": "Fair",
+            "value": "fair"
+        },
+        {
+            "label": "Brown",
+            "value": "Brown"
+        },
+        {
+            "label": "Light Brown",
+            "value": "light_brown"
+        },
+        {
+            "label": "Black",
+            "value": "black"
+        }
+    ]
+}

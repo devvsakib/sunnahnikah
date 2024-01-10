@@ -1,8 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
+@import 'fonts.css';
+/* :root {
     --primary: #fa4a6f;
     --secondary: #232635;
     --tertiary: #0eb7be;
@@ -11,17 +11,36 @@
     --foreground-rgb: #fff;
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
+} */
+:root {
+    --primary-color: #0EB7BE;
+    --body-background: #F5F5F5;
+    --accent-color: #FA4A6F;
+    --secondary-accent: #EC3384;
+    --dark-purple: #532B79;
+    --light-purple: #7B4F9E;
 }
 
-@media (prefers-color-scheme: dark) {
+body[data-theme='dark'] {
+    --primary-color: #094b51;
+    --body-background: #1a1e23;
+    --accent-color: #cc3a4f;
+    --secondary-accent: #b6233a;
+    --dark-purple: #331b4f;
+    --light-purple: #4f2e7a;
+}
+
+/* @media (prefers-color-scheme: dark) {
     :root {
         --foreground-rgb: 255, 255, 255;
         --background-start-rgb: 0, 0, 0;
         --background-end-rgb: 0, 0, 0;
     }
-}
+} */
 
 body {
     overflow-x: hidden;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'LexendDeca', sans-serif;
+    background-color: var(--body-background);
+    color: var(--primary-color);
 }
