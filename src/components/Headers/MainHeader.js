@@ -19,7 +19,7 @@ const menus = [
 const MainHeader = ({toggleTheme}) => {
     return (
             <header className=" flex items-center justify-between px-24 py-2">
-                <h1 className="text-2xl font-bold">SahihNiqah</h1>
+                <h1 className="text-2xl font-bold">SahihNikah</h1>
                 <nav>
                     <ul className="flex items-center justify-between space-x-5">
                         {
