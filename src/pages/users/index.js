@@ -19,16 +19,20 @@ import { useRouter } from 'next/router';
 import AdvancedSearchV2 from '@/components/AdvancedSearchV2';
 
 const Users = () => {
+    const router = useRouter()
 
     const [users, setUsers] = useState([])
     const [filteredUser, setFilteredUser] = useState([])
     const api = 'http://localhost:5000/api/users'
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
+        setLoading(true)
         fetch(api)
             .then(res => res.json())
             .then(data => setUsers(data))
             .catch(err => console.log(err))
+            .finally(() => setLoading(false))
 
     }, [])
     // 1987-04-25T00:00:00.000Z
@@ -56,7 +60,7 @@ const Users = () => {
 
 
             <div className='flex justify-center py-20'>
-                        <AdvancedSearchV2 />
+                <AdvancedSearchV2 />
             </div>
 
             <div className="flex flex-col justify-center">
@@ -77,6 +81,7 @@ const Users = () => {
 
                 <div className="px-5">
                     <Table
+                        loading={loading}
                         className="mt-5"
                         dataSource={filteredUser.map((user, index) => ({
                             ...user,
@@ -88,19 +93,20 @@ const Users = () => {
                                 dataIndex: "name",
                                 key: "name",
                                 render: (text, record) => (
-                                    <div className="flex flex-row items-center justify-center">
-                                        <p className="text-lg font-bold">{record.basicInformation.firstName} {record.basicInformation.lastName}</p>
-                                    </div>
-                                ),
+                                    <p
+                                        onClick={() => router.push(`/users/${record.userID}`)}
+                                        className="text-lg font-bold cursor-pointer">{record.basicInformation.firstName} {record.basicInformation.lastName}
+                                    </p>
+
+                                )
                             },
                             {
                                 title: "Age",
                                 dataIndex: "age",
                                 key: "age",
                                 render: (text, record) => (
-                                    <div className="flex flex-row items-center justify-center">
-                                        <p className="text-lg font-bold">{convertDateToYear(record.basicInformation.dob)}</p>
-                                    </div>
+                                    <p className="text-lg font-bold">{convertDateToYear(record.basicInformation.dob)}</p>
+
                                 ),
                             },
 

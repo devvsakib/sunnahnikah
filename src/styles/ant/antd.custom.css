@@ -1,0 +1,7 @@
+
+.ant-select-selector,
+.ant-input-affix-wrapper:focus-within,
+.ant-input{
+    box-shadow: none !important;
+}
+

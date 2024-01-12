@@ -1,6 +1,7 @@
 import CommonLayout from '@/components/Layouts/CommonLayout';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { Button } from 'antd';
 
 const View = () => {
     const router = useRouter();
@@ -40,6 +41,12 @@ const View = () => {
 
     return (
         <CommonLayout>
+            <Button
+                type="primary"
+                onClick={() => router.push('/users')}
+            >
+                Back
+            </Button>
            {id}
         </CommonLayout>
     );

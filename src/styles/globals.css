@@ -22,8 +22,8 @@
 }
 
 body[data-theme='dark'] {
-    --primary-color: #094b51;
-    --body-background: #1a1e23;
+    --primary-color: #d0f3f7;
+    --body-background: #161B21;
     --accent-color: #cc3a4f;
     --secondary-accent: #b6233a;
     --dark-purple: #331b4f;
