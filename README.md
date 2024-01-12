@@ -86,10 +86,10 @@ So, people will know what project it is. Make sure you added your github name an
 
 ## REPO STATUS
 
-![GitHub Issues Open](https://img.shields.io/github/issues/devvsakib/Hacktoberfest2023?style=for-the-badge&color=green)
-![GitHub PR Open](https://img.shields.io/github/issues-pr/devvsakib/Hacktoberfest2023?style=for-the-badge&color=aqua)
-![GitHub PR closed](https://img.shields.io/github/issues-pr-closed-raw/devvsakib/Hacktoberfest2023?style=for-the-badge&color=blue)
-![GitHub language count](https://img.shields.io/github/languages/count/devvsakib/Hacktoberfest2023?style=for-the-badge&color=brightgreen)
+![GitHub Issues Open](https://img.shields.io/github/issues/devvsakib/sunnahnikah?style=for-the-badge&color=green)
+![GitHub PR Open](https://img.shields.io/github/issues-pr/devvsakib/sunnahnikah?style=for-the-badge&color=aqua)
+![GitHub PR closed](https://img.shields.io/github/issues-pr-closed-raw/devvsakib/sunnahnikah?style=for-the-badge&color=blue)
+![GitHub language count](https://img.shields.io/github/languages/count/devvsakib/sunnahnikah?style=for-the-badge&color=brightgreen)
 > Size: 0.00 MiB
 <br>
 
