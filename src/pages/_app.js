@@ -1,5 +1,6 @@
 import '@/styles/globals.css'
 import '@/styles/fonts.css'
+import '@/styles/tailwind.common.css'
 import 'antd/dist/reset.css';
 import '@/styles/reset.css';
 import '@/styles/ant/antd.custom.css'
@@ -8,22 +9,18 @@ import MainHeader from '@/components/Headers/MainHeader'
 import Head from 'next/head'
 import { ConfigProvider } from 'antd';
 import ProviderContainer from '@/utils/ProviderContainer';
-import { useTheme } from '@/utils/ThemeProvider';
-
+import { useTheme } from '../utils/ThemeProvider';
 
 function MyApp({ Component, pageProps }) {
-
     return (
         <ProviderContainer>
-
             <MyAppComponent Component={Component} pageProps={pageProps} />
-
         </ProviderContainer>
     );
 }
 
 function MyAppComponent({ Component, pageProps }) {
-    const { theme } = useTheme()
+    const { theme } = useTheme();
     const themeColors = {
         lightThemeColors: {
             colorPrimary: '#0EB7BE',
@@ -35,8 +32,8 @@ function MyAppComponent({ Component, pageProps }) {
             colorPrimaryActive: '#0EB7BE', // when we click on button the outline color
             colorIcon: '#FFFFFF', // not active icon like table header
             linkFocusDecoration: '#FFFFFF', // not active icon like table header
-            colorBgElevated: '#F5F5F5', 
-         },
+            colorBgElevated: '#F5F5F5',
+        },
         darkThemeColors: {
             colorPrimary: '#0EB7BE',
             colorTextDisabled: '#7D8FA960',
