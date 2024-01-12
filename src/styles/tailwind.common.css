@@ -1,0 +1,23 @@
+.flexcenter {
+    @apply flex items-center;
+}
+
+.flexcenter1 {
+    @apply flex items-center gap-1;
+}
+
+.flexcenter2 {
+    @apply flex items-center gap-2;
+}
+
+.flexcenter3 {
+    @apply flex items-center gap-3;
+}
+
+.flexcenter4 {
+    @apply flex items-center gap-4;
+}
+
+.imgRounded{
+    @apply rounded-[3rem];
+}

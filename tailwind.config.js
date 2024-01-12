@@ -13,6 +13,14 @@ module.exports = {
                 accent: 'var(--accent-color)',
                 secondaryAccent: 'var(--secondary-accent)',
                 darkPurple: 'var(--dark-purple)',
+                lightBorder: 'var(--light-border)',
+            },
+            backgroundColor:{
+                "primary": "var(--primary-color)",
+                "profileBanner": "#FCFBFF",
+            },
+            fontFamily: {
+                lex: ['LexendDeca', 'sans-serif'],
             },
         }
     },

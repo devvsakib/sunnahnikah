@@ -18,6 +18,7 @@
     "antd-form-builder": "^2.1.4",
     "autoprefixer": "^10.4.14",
     "axios": "^1.4.0",
+    "country-state-city": "^3.2.1",
     "eslint-config-next": "13.3.1",
     "firebase": "^9.23.0",
     "framer-motion": "^10.17.9",

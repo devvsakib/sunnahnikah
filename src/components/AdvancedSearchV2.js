@@ -2,6 +2,7 @@ import { Button, Input, Select, Slider, Space } from 'antd';
 import React, { useState } from 'react';
 import countryList from '../data/country.json';
 import searchData from '../data/data.json';
+import AddressSearch from './Common/AddressSearch';
 
 const AdvancedSearchV2 = () => {
     const [searchCategory, setSearchCategory] = useState('all');
@@ -122,32 +123,8 @@ const AdvancedSearchV2 = () => {
                 value={searchCriteria.memberID}
                 onChange={(e) => setSearchCriteria({ ...searchCriteria, memberID: e.target.value })}
             /> */}
-            {/* Country */}
-            <Select
-                placeholder='Country'
-                style={{ width: 120 }}
-                options={countryList.country}
-                onChange={(value) => setSearchCriteria({ ...searchCriteria, address: { ...searchCriteria.address, country: value } })}
-            />
-
-            {/* State */}
-            <Select
-                placeholder='State'
-                style={{ width: 120 }}
-                options={countryList.state}
-                disabled={searchCriteria.address.country === ''}
-                onChange={(value) => setSearchCriteria({ ...searchCriteria, address: { ...searchCriteria.address, state: value } })}
-
-            />
-
-            {/* City */}
-            <Select
-                placeholder='City'
-                style={{ width: 120 }}
-                disabled={searchCriteria.address.state === ''}
-                onChange={(value) => setSearchCriteria({ ...searchCriteria, address: { ...searchCriteria.address, city: value } })}
-                options={countryList.city[searchCriteria.address.state]}
-            />
+            
+            <AddressSearch />
 
             {/* Mother Tongue */}
             <Select

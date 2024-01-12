@@ -19,11 +19,13 @@
     --secondary-accent: #EC3384;
     --dark-purple: #532B79;
     --light-purple: #7B4F9E;
+    --light-border: #E9E9E9;
+    --header-bg-color: var(--primary-color)
 }
 
 body[data-theme='dark'] {
-    --primary-color: #094b51;
-    --body-background: #1a1e23;
+    --primary-color: #d0f3f7;
+    --body-background: #161B21;
     --accent-color: #cc3a4f;
     --secondary-accent: #b6233a;
     --dark-purple: #331b4f;
@@ -40,7 +42,23 @@ body[data-theme='dark'] {
 
 body {
     overflow-x: hidden;
-    font-family: 'LexendDeca', sans-serif;
-    background-color: var(--body-background);
-    color: var(--primary-color);
+    font-family: 'LexendDeca';
+}
+sndot{
+    height: 5px;
+    width: 5px;
+    background-color: #000;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+p{
+    color: "#656875 !important";
+}
+
+snspacing{
+    height: 10px;
+    width: 10px;
+    display: block;
+    margin-top: .5rem;
 }

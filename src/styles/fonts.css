@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'LexendDeca';
-    src: url('/font/LexendDeca-VariableFont_wght.ttf') format('tff'),
-        url('/font/LexendDeca-VariableFont_wght.ttf') format('tff');
+    src: url('/font/LexendDeca.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
+
