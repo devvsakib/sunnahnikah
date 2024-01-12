@@ -1,6 +1,6 @@
-<p align="center"><img src="public/img/hacktoberfest.svg"></p>
+<p align="center"><img src="public/assets/logo.svg"></p>
 
-# <p align="center"> Hacktoberfest 2023 ✅ | RealMate </p>
+# <p align="center"> SunnahNikah </p>
 
 
 ## How to Contribute to this project
