@@ -1,8 +1,11 @@
 // Example React component for advanced search
 import { Button, Input, Select } from 'antd';
 import React, { useState } from 'react';
+import AddressSearch from './Common/AddressSearch';
+import { useLanguage } from '@/utils/LanguageProvider';
 
 const AdvancedSearch = () => {
+    const { language } = useLanguage();
     const [searchCategory, setSearchCategory] = useState('all');
     const [searchCriteria, setSearchCriteria] = useState({
         maritalStatus: '',
@@ -17,31 +20,24 @@ const AdvancedSearch = () => {
     };
 
     return (
-        <div className='flex gap-2 items-center'>
+        <div className='flex gap-2 items-center bg-white/30 backdrop-blur-sm shadow-md p-5 rounded-md'>
             <Select
                 style={{ width: 120 }}
                 defaultValue="all"
                 onChange={(value) => setSearchCategory(value)}
             >
-                <Select.Option value="all">All</Select.Option>
-                <Select.Option value="basic">Basic</Select.Option>
-                <Select.Option value="advanced">Advanced</Select.Option>
+                <Select.Option value="all">
+                    {language === 'english' ? 'All' : 'সব'}
+                </Select.Option>
+                <Select.Option value="groom">
+                    {language === 'english' ? 'Groom' : 'পাত্ৰ'}
+                </Select.Option>
+                <Select.Option value="bride">
+                    {language === 'english' ? 'Bride' : 'পাত্রী'}
+                </Select.Option>
             </Select>
 
-
-            <Input
-                type="text"
-                placeholder="Marital Status"
-                value={searchCriteria.maritalStatus}
-                onChange={(e) => setSearchCriteria({ ...searchCriteria, maritalStatus: e.target.value })}
-            />
-
-            <Input
-                type="text"
-                placeholder="Address"
-                value={searchCriteria.address}
-                onChange={(e) => setSearchCriteria({ ...searchCriteria, address: e.target.value })}
-            />
+            <AddressSearch />
 
             {/* Other input fields based on the selected search category */}
 

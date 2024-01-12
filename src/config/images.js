@@ -1,6 +1,7 @@
 const images = {
     logo: '../assets/images/logo.png',
     cat: '../assets/cat.png',
+    banner: '../assets/home_banner.jpg',
     banner0: '../assets/profile_banner/banner0.jpg',
     banner1: '../assets/profile_banner/banner1.jpg',
     banner2: '../assets/profile_banner/banner2.jpg',
