@@ -1,17 +1,40 @@
 import AddressSearch from '@/components/Common/AddressSearch';
 import Division from '@/components/Common/Division';
 import PublicLayout from '@/components/Layouts/PublicLayout';
-import { DatePicker, Form, Input, Select, Button } from 'antd';
-import React, { useState } from 'react'
+import { DatePicker, Form, Input, Select, Button, notification } from 'antd';
+import React, { useState, useEffect } from 'react'
+import { useLanguage } from '@/utils/LanguageProvider';
+import division from '@/data/divisions.json'
+import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
 
 const Signup = () => {
-    const [addressValues, setAddressValues] = useState({
-        division: '',
-        district: '',
-        upazila: '',
-        union: '',
-    })
+    const { language, changeLanguage } = useLanguage()
+    const [showPassword, setShowPassword] = useState(false)
+    const [selectedDivision, setSelectedDivision] = useState('')
+    const placeholderLanguage = (eng, bang) => {
+        if (language === 'english') {
+            return 'Select ' + eng
+        } else {
+            return bang + ' নির্বাচন করুন'
+        }
+    }
+
     const [selectedAddress, setSelectedAddress] = useState("")
+    useEffect(() => {
+        const selectedDivisionObject = division.find(d => d.id == selectedDivision);
+
+        if (selectedDivisionObject) {
+            setSelectedAddress({
+                division: selectedDivisionObject.name
+            });
+        } else {
+            // Handle the case when the selectedDivision is not found in the division array
+            setSelectedAddress({
+                division: '' // or any default value you want to set
+            });
+        }
+    }, [selectedDivision]);
+
     const signupInput = [
         {
             label: 'Created for',
@@ -39,7 +62,7 @@ const Signup = () => {
         // first naem last name
         {
             label: 'First Name',
-            name: 'firstname',
+            name: 'firstName',
             type: 'text',
             placeholder: 'Enter your first name',
             rules: [
@@ -51,7 +74,7 @@ const Signup = () => {
         },
         {
             label: 'Last Name',
-            name: 'lastname',
+            name: 'lastName',
             type: 'text',
             placeholder: 'Enter your last name',
             rules: [
@@ -77,14 +100,22 @@ const Signup = () => {
             // phone number with country code prefix
             label: 'Phone',
             name: 'phone',
-            type: 'text',
+            type: 'number',
             placeholder: 'Enter your phone number',
             prefix: '+880',
             rules: [
                 {
                     required: true,
-                    message: 'Please input your phone number!',
+                    message: 'Please input your phone number!'
                 },
+                {
+                    min: 11,
+                    message: 'Phone number must be 11 digits'
+                },
+                {
+                    max: 11,
+                    message: 'Phone number must be 11 digits'
+                }
             ],
         },
         {
@@ -157,7 +188,7 @@ const Signup = () => {
         {
             label: 'Password',
             name: 'password',
-            type: 'password',
+            type: showPassword ? 'text' : 'password',
             placeholder: 'Enter your password',
             rules: [
                 {
@@ -165,13 +196,14 @@ const Signup = () => {
                     message: 'Please input your password!',
                 },
             ],
+            suffix: !showPassword ? <EyeInvisibleOutlined onClick={() => setShowPassword(!showPassword)} /> : <EyeOutlined onClick={() => setShowPassword(!showPassword)} />,
         },
 
         // confirm password
         {
             label: 'Confirm Password',
             name: 'confirmPassword',
-            type: 'password',
+            type: showPassword ? 'text' : 'password',
             placeholder: 'Confirm your password',
             rules: [
                 {
@@ -187,28 +219,16 @@ const Signup = () => {
                     },
                 }),
             ],
+            suffix: !showPassword ? <EyeInvisibleOutlined onClick={() => setShowPassword(!showPassword)} /> : <EyeOutlined onClick={() => setShowPassword(!showPassword)} />,
         },
 
     ]
-    const renderInputs = (input) => {
+    const renderInputs = (input, showPassword) => {
         const validationRules = [];
 
-
-        if (input.name === 'division') {
-            if (selectedAddress) {
-                validationRules.push({
-                    required: false,
-                })
-            } else {
-                validationRules.push({
-                    required: true,
-                })
-            }
-        } else {
-            validationRules.push({
-                required: true,
-            })
-        }
+        validationRules.push({
+            required: true,
+        })
 
 
         return (
@@ -233,15 +253,23 @@ const Signup = () => {
                             />
                             :
                             input.type === 'address-search' ?
-                                <Division
-                                    onAddressChange={setAddressValues}
-                                    selectedAddress={setSelectedAddress}
+                                <Select
+                                    placeholder={placeholderLanguage('Division', 'বিভাগ')}
+                                    options={division.map((division) => (
+                                        {
+                                            label: language === 'english' ? division.name : division.bn_name,
+                                            value: division.id
+                                        }
+                                    ))}
+                                    onChange={(e) => setSelectedDivision(e)}
+                                    value={selectedAddress || null}
                                 />
                                 :
                                 <Input
                                     type={input.type}
                                     placeholder={input.placeholder}
-                                    prefix={input.prefix}
+                                    addonBefore={input.prefix}
+                                    suffix={input.suffix}
                                     className={input.className}
                                 />
                 }
@@ -251,9 +279,36 @@ const Signup = () => {
 
 
     const onFinish = (values) => {
-        // add address values to the form values
-        values = { ...values, ...addressValues }
-        console.log('Success:', values);
+        values = { ...values, ...selectedAddress }
+        const { dob, confirmPassword, password, phone } = values
+
+        if (dob) {
+            values.dob = dob.format('DD-MM-YYYY')
+        }
+        const tempPhone = `+880${phone}`
+
+        const isValidBangladeshiPhoneNumber = (phoneNumber) => {
+            const bangladeshiPhoneNumberRegex = /^(?:\+88|88)?(01[3-9]\d{8})$/;
+            return bangladeshiPhoneNumberRegex.test(phoneNumber);
+        };
+
+        const isValid = isValidBangladeshiPhoneNumber(tempPhone);
+
+        if (!isValid) {
+            notification.error({
+                message: 'Invalid phone number'
+            })
+            return
+        }
+
+        
+        console.log(values);
+        if (confirmPassword && (confirmPassword === password)) {
+            delete values.confirmPassword
+        } else notification.error({
+            message: 'Password not matched'
+        })
+
 
     }
 
