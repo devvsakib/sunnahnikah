@@ -21,3 +21,8 @@
 .imgRounded{
     @apply rounded-[3rem];
 }
+
+
+.btn-primary {
+    @apply bg-secondaryAccent text-white;
+}

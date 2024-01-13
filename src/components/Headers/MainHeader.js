@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useTheme } from "@/utils/ThemeProvider";
 import { useLanguage } from "@/utils/LanguageProvider";
 import { Divider, Select } from "antd";
+import images from "@/config/images";
 const menus = [
     {
         title: 'Home',
@@ -26,7 +27,7 @@ const MainHeader = () => {
         >
             <div className=" flex items-center justify-between px-24 py-2">
 
-                <h1 className="text-2xl font-bold">SunnahNikah</h1>
+                <img className="max-w-[100px]" src={images.logo} alt="Sunnah Nikah" />
                 <nav>
                     <ul className="flex items-center justify-between space-x-5 !font-[poppins]">
                         {

@@ -60,11 +60,38 @@ function MyAppComponent({ Component, pageProps }) {
                     components: {
                         Select: {
                             style: {
-                                borderRadius: '0.5rem',
+                                borderRadius: '0.3rem',
                                 '&:focus': {
                                     borderColor: 'none !important',
                                 },
                             },
+                        },
+                        Input: {
+                            borderRadius: '0.3rem',
+                        },
+                        Button: {
+                            borderRadius: '0.3rem',
+                        },
+                        Radio: {
+                            borderRadius: '0.3rem',
+                        },
+                        Checkbox: {
+                            borderRadius: '0.3rem',
+                        },
+                        Switch: {
+                            borderRadius: '0.3rem',
+                        },
+                        Slider: {
+                            borderRadius: '0.3rem',
+                        },
+                        Card: {
+                            borderRadius: '0.3rem',
+                        },
+                        Collapse: {
+                            borderRadius: '0.3rem',
+                        },
+                        Dropdown: {
+                            borderRadius: '0.3rem',
                         },
                     }
                 }
