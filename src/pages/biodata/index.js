@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {
+    Badge,
     Input
 } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
@@ -51,10 +52,17 @@ const Biodata = () => {
                 <AdvancedSearchV2 />
             </div>
 
-            <div className="flex flex-col justify-center">
-                <h1 className="text-4xl font-bold text-center">Users</h1>
+            <div className="flex flex-row justify-center items-center">
+                <h3>Profiles <Badge
+                    count={filteredUser.length}
+                    style={{ backgroundColor: '#52c41a' }}
+                    className="ml-2"
+                />
+                </h3>
+            </div>
 
-                <div className="flex flex-col items-center justify-center">
+            <div className="flex flex-col justify-center">
+                {/* <div className="flex flex-col items-center justify-center">
                     <div className="flex flex-row items-center justify-center">
                         <div className="flex flex-row items-center justify-center">
                             <Input
@@ -65,7 +73,7 @@ const Biodata = () => {
                             />
                         </div>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="px-5 grid md:grid-cols-2 gap-5 my-10">
                     {

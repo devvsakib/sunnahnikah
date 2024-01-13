@@ -72,6 +72,7 @@ const AddressSearch = ({ layout, onChange }) => {
             />
             <Select
                 placeholder={placeholderLanguage('District', 'জেলা')}
+                disabled={!selectedDivision}
                 options={districtList.map((district) => (
                     {
                         label: language === 'english' ? district.name : district.bn_name,
@@ -83,7 +84,7 @@ const AddressSearch = ({ layout, onChange }) => {
             />
             <Select
                 placeholder={placeholderLanguage('Upazila', 'উপজেলা')}
-
+                disabled={!selectedDistrict}
                 options={upazilaList.map((upazila) => (
                     {
                         label: language === 'english' ? upazila.name : upazila.bn_name,
@@ -94,6 +95,7 @@ const AddressSearch = ({ layout, onChange }) => {
                 value={selectedUpazila || null}
             />
             <Select
+                disabled={!selectedUpazila}
                 placeholder={placeholderLanguage('Union', 'ইউনিয়ন')}
                 options={unionList.map((union) => (
                     {

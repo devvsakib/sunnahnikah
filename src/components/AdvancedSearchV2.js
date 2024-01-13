@@ -152,9 +152,9 @@ const AdvancedSearchV2 = () => {
         return searchField.map((item, index) => {
             return (
                 <Form.Item
-                    className={`${item.type === 'address' ? 'col-span-2' : ''}`}
+                    className={`${item.type === 'address' ? 'col-span-2' : ''} m-0`}
                     key={index}
-                    label={item.label}
+                    label={<span className='opacity-70 text-[12px] block'>{item.label}</span>}
                     name={item.name}
                     initialValue={item.defaultValue}
                     rules={[{ required: false }]}
@@ -172,7 +172,7 @@ const AdvancedSearchV2 = () => {
                             ))}
                         </Select>
                     ) : item.type === 'age' ? (
-                        <Space style={{ gap: 2 }}>
+                        <div className='flex gap-[.1rem]'>
                             <Select
                                 placeholder='Min'
                                 type='number'
@@ -190,7 +190,7 @@ const AdvancedSearchV2 = () => {
                                 // value={searchCriteria.age.max}
                                 onChange={(e) => setSearchCriteria({ ...searchCriteria, age: { ...searchCriteria.age, max: e } })}
                             />
-                        </Space>
+                        </div>
                     ) : item.type === 'height' ? (
                         <div className='flex gap-[.1rem]'>
                             <Select
@@ -250,6 +250,7 @@ const AdvancedSearchV2 = () => {
                 </div>
                 <Button
                     htmlType='submit'
+                    className='mt-5 w-full bg-secondaryAccent text-white hover:bg-primary-light'
                 >
                     Search
                 </Button>
