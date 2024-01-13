@@ -2,7 +2,7 @@ import { SwitcherOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import { useTheme } from "@/utils/ThemeProvider";
 import { useLanguage } from "@/utils/LanguageProvider";
-import { Divider, Select } from "antd";
+import { Divider, Select, Menu } from "antd";
 import images from "@/config/images";
 const menus = [
     {

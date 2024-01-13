@@ -1,7 +1,35 @@
 @font-face {
     font-family: 'LexendDeca';
-    src: url('/font/LexendDeca.ttf') format('truetype');
+    src: url('/font/static/LexendDeca-regular.ttf') format('truetype');
     font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LexendDeca';
+    src: url('/font/static/LexendDeca-bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LexendDeca';
+    src: url('/font/static/LexendDeca-italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'LexendDeca';
+    src: url('/font/static/LexendDeca-bolditalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'LexendDeca';
+    src: url('/font/static/LexendDeca-light.ttf') format('truetype');
+    font-weight: 300;
     font-style: normal;
 }
 
