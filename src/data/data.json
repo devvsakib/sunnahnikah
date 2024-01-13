@@ -131,6 +131,10 @@
         {
             "label": "Divorced",
             "value": "divorced"
+        },
+        {
+            "label": "Masnah",
+            "value": "masnah"
         }
     ],
     "motherTongue": [
