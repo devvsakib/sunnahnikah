@@ -7,7 +7,7 @@ import districts from '@/data/districts.json'
 import division from '@/data/divisions.json'
 import { useLanguage } from '@/utils/LanguageProvider';
 
-const AddressSearch = () => {
+const AddressSearch = ({ layout, onChange }) => {
     const { language, changeLanguage } = useLanguage()
     const [selectedDivision, setSelectedDivision] = useState('')
     const [selectedDistrict, setSelectedDistrict] = useState('')
@@ -39,9 +39,25 @@ const AddressSearch = () => {
         }
     }
 
+    useEffect(() => {
+        const selectedDivisionName = selectedDivision ? division.find(div => div.id == selectedDivision)?.name : '';
+        const selectedDistrictName = selectedDistrict ? districtList.find(district => district.id == selectedDistrict)?.name : '';
+        const selectedUpazilaName = selectedUpazila ? upazilaList.find(upazila => upazila.id == selectedUpazila)?.name : '';
+        const selectedUnionName = selectedUnion ? unionList.find(union => union.id == selectedUnion)?.name : '';
+
+        onChange({
+            division: selectedDivisionName,
+            district: selectedDistrictName,
+            upazila: selectedUpazilaName,
+            union: selectedUnionName
+        });
+    }, [selectedDivision, selectedDistrict, selectedUpazila, selectedUnion])
+
 
     return (
-        <>
+        <div
+            className={`grid grid-cols-2 gap-3 flex-wrap`}
+        >
 
             <Select
                 placeholder={placeholderLanguage('Division', 'বিভাগ')}
@@ -56,7 +72,7 @@ const AddressSearch = () => {
             />
             <Select
                 placeholder={placeholderLanguage('District', 'জেলা')}
-                disabled={selectedDivision === ''}
+                disabled={!selectedDivision}
                 options={districtList.map((district) => (
                     {
                         label: language === 'english' ? district.name : district.bn_name,
@@ -68,7 +84,7 @@ const AddressSearch = () => {
             />
             <Select
                 placeholder={placeholderLanguage('Upazila', 'উপজেলা')}
-                disabled={selectedDistrict === ''}
+                disabled={!selectedDistrict}
                 options={upazilaList.map((upazila) => (
                     {
                         label: language === 'english' ? upazila.name : upazila.bn_name,
@@ -79,8 +95,8 @@ const AddressSearch = () => {
                 value={selectedUpazila || null}
             />
             <Select
+                disabled={!selectedUpazila}
                 placeholder={placeholderLanguage('Union', 'ইউনিয়ন')}
-                disabled={selectedUpazila === ''}
                 options={unionList.map((union) => (
                     {
                         label: language === 'english' ? union.name : union.bn_name,
@@ -92,7 +108,7 @@ const AddressSearch = () => {
             />
 
 
-        </>
+        </div>
     )
 }
 

@@ -3,7 +3,7 @@ import images from "@/config/images";
 
 export default function Home() {
     return (
-        <main className="flex min-h-screen flex-col justify-center items-center p-24"
+        <main className="-mt-16 flex min-h-screen flex-col justify-center items-center p-24"
             style={{
                 backgroundImage: `url(${images.banner})`,
                 backgroundSize: 'cover',
@@ -14,7 +14,7 @@ export default function Home() {
         >
             <h1>Welcome to the Matrimonial Website</h1>
             <p className="my-2">Find your perfect match!</p>
-            <AdvancedSearch />
+            <AdvancedSearch valueOf={["all"]} />
         </main>
     )
 }

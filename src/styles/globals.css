@@ -41,8 +41,9 @@ body[data-theme='dark'] {
 } */
 
 body {
-    overflow-x: hidden;
-    font-family: 'LexendDeca';
+    overflow-x: hidden !important;
+    font-family: 'Raleway';
+    font-weight: 400;
 }
 sndot{
     height: 5px;
