@@ -14,7 +14,7 @@ export default function Home() {
         >
             <h1>Welcome to the Matrimonial Website</h1>
             <p className="my-2">Find your perfect match!</p>
-            <AdvancedSearch />
+            <AdvancedSearch valueOf={["all"]} />
         </main>
     )
 }
