@@ -1,26 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import {
-    message,
-    Button,
-    notification,
-    Modal,
-    Dropdown,
-    Space,
-    Drawer,
-    Table,
-    Spin,
-    Input,
-    Tag,
-    Radio,
-    Popover,
+    Input
 } from "antd";
-import { PlusOutlined, EditOutlined, DeleteOutlined, ExclamationCircleOutlined, SearchOutlined } from "@ant-design/icons";
+import { SearchOutlined } from "@ant-design/icons";
 import { useRouter } from 'next/router';
 import AdvancedSearchV2 from '@/components/AdvancedSearchV2';
 import ProfileCard from '@/components/Profile/ProfileCard';
 import PublicLayout from '@/components/Layouts/PublicLayout';
 
-const Users = () => {
+const Biodata = () => {
     const router = useRouter()
 
     const [users, setUsers] = useState([])
@@ -95,4 +83,4 @@ const Users = () => {
     )
 }
 
-export default Users
+export default Biodata
