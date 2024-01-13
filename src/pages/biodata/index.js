@@ -1,24 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import {
-    message,
-    Button,
-    notification,
-    Modal,
-    Dropdown,
-    Space,
-    Drawer,
-    Table,
-    Spin,
-    Input,
-    Tag,
-    Radio,
-    Popover,
+    Input
 } from "antd";
-import { PlusOutlined, EditOutlined, DeleteOutlined, ExclamationCircleOutlined, SearchOutlined } from "@ant-design/icons";
+import { SearchOutlined } from "@ant-design/icons";
 import { useRouter } from 'next/router';
 import AdvancedSearchV2 from '@/components/AdvancedSearchV2';
+import ProfileCard from '@/components/Profile/ProfileCard';
+import PublicLayout from '@/components/Layouts/PublicLayout';
 
-const Users = () => {
+const Biodata = () => {
     const router = useRouter()
 
     const [users, setUsers] = useState([])
@@ -56,9 +46,7 @@ const Users = () => {
 
 
     return (
-        <main className="flex min-h-screen flex-col bg-gradient-to-r ">
-
-
+        <PublicLayout>
             <div className='flex justify-center py-20'>
                 <AdvancedSearchV2 />
             </div>
@@ -79,44 +67,20 @@ const Users = () => {
                     </div>
                 </div>
 
-                <div className="px-5">
-                    <Table
-                        loading={loading}
-                        className="mt-5"
-                        dataSource={filteredUser.map((user, index) => ({
-                            ...user,
-                            key: index,
-                        }))}
-                        columns={[
-                            {
-                                title: "Name",
-                                dataIndex: "name",
-                                key: "name",
-                                render: (text, record) => (
-                                    <p
-                                        onClick={() => router.push(`/users/${record.userID}`)}
-                                        className="text-lg font-bold cursor-pointer">{record.basicInformation.firstName} {record.basicInformation.lastName}
-                                    </p>
-
-                                )
-                            },
-                            {
-                                title: "Age",
-                                dataIndex: "age",
-                                key: "age",
-                                render: (text, record) => (
-                                    <p className="text-lg font-bold">{convertDateToYear(record.basicInformation.dob)}</p>
-
-                                ),
-                            },
-
-                        ]}
-                    />
+                <div className="px-5 grid md:grid-cols-2 gap-5 my-10">
+                    {
+                        filteredUser.length === 0 ?
+                            <div className="flex justify-center items-center">
+                                <h1 className="text-2xl font-bold text-center">No User Found</h1>
+                            </div>
+                            :
+                            filteredUser.map((user, idx) => <ProfileCard user={user} key={idx} />)
+                    }
 
                 </div>
             </div>
-        </main>
+        </PublicLayout>
     )
 }
 
-export default Users
+export default Biodata

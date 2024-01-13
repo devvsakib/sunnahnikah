@@ -2,7 +2,8 @@ import { SwitcherOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import { useTheme } from "@/utils/ThemeProvider";
 import { useLanguage } from "@/utils/LanguageProvider";
-import { Divider, Select } from "antd";
+import { Divider, Select, Menu } from "antd";
+import images from "@/config/images";
 const menus = [
     {
         title: 'Home',
@@ -22,11 +23,11 @@ const MainHeader = () => {
     const { toggleTheme } = useTheme();
     const { language, changeLanguage } = useLanguage()
     return (
-        <header className="fixed top-0 left-0 right-0 z-50"
+        <header className="top-0 left-0 right-0 z-50"
         >
             <div className=" flex items-center justify-between px-24 py-2">
 
-                <h1 className="text-2xl font-bold">SunnahNikah</h1>
+                <img className="max-w-[100px]" src={images.logo} alt="Sunnah Nikah" />
                 <nav>
                     <ul className="flex items-center justify-between space-x-5 !font-[poppins]">
                         {

@@ -18,6 +18,15 @@
     @apply flex items-center gap-4;
 }
 
-.imgRounded{
+.imgRounded {
     @apply rounded-[3rem];
+}
+
+
+.btn-primary {
+    @apply bg-secondaryAccent text-white;
+}
+
+.main-header {
+    @apply justify-between items-center
 }
