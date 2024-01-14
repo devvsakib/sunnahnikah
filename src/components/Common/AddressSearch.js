@@ -44,19 +44,20 @@ const AddressSearch = ({ layout, onChange }) => {
         const selectedDistrictName = selectedDistrict ? districtList.find(district => district.id == selectedDistrict)?.name : '';
         const selectedUpazilaName = selectedUpazila ? upazilaList.find(upazila => upazila.id == selectedUpazila)?.name : '';
         const selectedUnionName = selectedUnion ? unionList.find(union => union.id == selectedUnion)?.name : '';
-
-        onChange({
-            division: selectedDivisionName,
-            district: selectedDistrictName,
-            upazila: selectedUpazilaName,
-            union: selectedUnionName
-        });
+        if (onChange) {
+            onChange({
+                division: selectedDivisionName,
+                district: selectedDistrictName,
+                upazila: selectedUpazilaName,
+                union: selectedUnionName
+            });
+        }
     }, [selectedDivision, selectedDistrict, selectedUpazila, selectedUnion])
 
 
     return (
         <div
-            className={`grid grid-cols-2 gap-3 flex-wrap`}
+            className={`grid ${layout ? "grid-cols-2" : "grid-cols-4"} gap-3 flex-wrap`}
         >
 
             <Select

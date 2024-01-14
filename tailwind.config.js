@@ -14,10 +14,13 @@ module.exports = {
                 secondaryAccent: 'var(--secondary-accent)',
                 darkPurple: 'var(--dark-purple)',
                 lightBorder: 'var(--light-border)',
+                heading: 'var(--heading)',
             },
             backgroundColor:{
                 "primary": "var(--primary-color)",
                 "profileBanner": "#FCFBFF",
+                "gradient_one": "#FA4A6F",
+                "gradient_two": "#532B79",
             },
             fontFamily: {
                 lex: ['LexendDeca', 'sans-serif'],

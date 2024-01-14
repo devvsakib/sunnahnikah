@@ -1,34 +1,86 @@
 import PublicLayout from '@/components/Layouts/PublicLayout';
+import { API_PATHS } from '@/config/ApiConfig';
 import images from '@/config/images';
+import { useAuth } from '@/utils/AuthProvider';
 import { ArrowLeftOutlined, EnvironmentFilled, RedEnvelopeOutlined } from '@ant-design/icons';
 import { Alert, Button, Divider, Form, Input, notification } from 'antd'
+import axios from 'axios';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react'
-import { FaFacebook, FaGoogle, FaRegEnvelope } from "react-icons/fa";
+import { FaFacebook, FaGoogle } from "react-icons/fa";
+import Cookies from 'universal-cookie';
 
 const Login = () => {
+    const { login, logout, isLogged } = useAuth();
     const [form] = Form.useForm();
     const [error, setError] = useState(false)
     const [loading, setLoading] = useState(false)
     const [success, setSuccess] = useState(false)
+    const cookies = new Cookies();
+
+
+    const router = useRouter();
+
     const openNotification = () => {
         notification.open({
-          message: 'Comming Soon!',
-          description:
-            'This feature is not available yet',
-          onClick: () => {
-            console.log('Notification Clicked!');
-          },
+            message: 'Comming Soon!',
+            description:
+                'This feature is not available yet',
+            onClick: () => {
+                console.log('Notification Clicked!');
+            },
         });
-      };
-    const onFinish = (values) => {
-        console.log('Success:', values);
-        setSuccess(true)
-        setLoading(true)
-        setTimeout(() => {
-            setLoading(false)
-            setSuccess(false)
-        }, 3000)
-    }
+    };
+    const onFinish = async (values) => {
+        try {
+            setLoading(true);
+            // return console.log(values)
+            const response = await axios.post(API_PATHS.LOGIN, values);
+
+            // Extract the token from the response and store it in cookies
+            const { token } = response.data.data;
+            cookies.set('token', token, { path: '/' });
+            setSuccess(true);
+            setLoading(false);
+            login(response.data.data.basicInformation);
+            router.push('/dashboard');
+        } catch (error) {
+            setError(true);
+            setLoading(false);
+            if (error.response) {
+                const status = error.response.status;
+                const data = error.response.data;
+
+                if (status === 404) {
+                    notification.error({
+                        message: 'Error',
+                        description: data.message || 'User not found',
+                    });
+                }
+                if (status === 401) {
+                    notification.error({
+                        message: 'Error',
+                        description: data.message || 'Password incorrect',
+                    });
+                }
+            } else if (error.request) {
+                notification.error({
+                    message: 'Error',
+                    description: 'No response received from the server',
+                });
+            } else {
+                notification.error({
+                    message: 'Error',
+                    description: 'Request setup error',
+                });
+            }
+        }
+    };
+
+    const handleLogout = () => {
+        // Perform actual logout logic (e.g., clear session)
+        logout();
+    };
 
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
