@@ -4,7 +4,9 @@ import '@/styles/tailwind.common.css'
 import 'antd/dist/reset.css';
 import '@/styles/reset.css';
 import '@/styles/ant/antd.custom.css'
-
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
 import MainHeader from '@/components/Headers/MainHeader'
 import Head from 'next/head'
 import { ConfigProvider } from 'antd';

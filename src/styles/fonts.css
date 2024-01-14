@@ -33,3 +33,38 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Br_omega';
+    src: url('/font/BROmega-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Br_omega';
+    src: url('/font/BROmega-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'Br_omega';
+    src: url('/font/BROmega-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Br_omega';
+    src: url('/font/BROmega-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Br_omega';
+    src: url('/font/BROmega-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Br_omega';
+    src: url('/font/BROmega-Medium.ttf') format('truetype');
+}

@@ -1,9 +1,13 @@
+import PrivateLayout from '@/components/Layouts/PrivateLayout'
+import Testimonial from '@/components/Testimonial'
 import React from 'react'
 
 const Dashboard = () => {
-  return (
-    <div>Dashboard</div>
-  )
+    return (
+        <PrivateLayout>
+            <Testimonial />
+        </PrivateLayout>
+    )
 }
 
 export default Dashboard
