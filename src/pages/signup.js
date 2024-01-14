@@ -6,8 +6,18 @@ import React, { useState, useEffect } from 'react'
 import { useLanguage } from '@/utils/LanguageProvider';
 import division from '@/data/divisions.json'
 import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
+import { useRouter } from 'next/router';
+import { useAuth } from '@/utils/AuthProvider';
+import { useCookies } from 'react-cookie';
+import { API_PATHS } from '@/config/ApiConfig';
+import axios from 'axios';
 
 const Signup = () => {
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const { login } = useAuth();
+    const router = useRouter();
+    const [cookies, setCookie] = useCookies(['token']);
     const { language, changeLanguage } = useLanguage()
     const [showPassword, setShowPassword] = useState(false)
     const [selectedDivision, setSelectedDivision] = useState('')
@@ -38,7 +48,7 @@ const Signup = () => {
     const signupInput = [
         {
             label: 'Created for',
-            name: 'createdfor',
+            name: 'createProfileFor',
             type: 'text',
             placeholder: 'Self',
             type: 'select',
@@ -278,7 +288,7 @@ const Signup = () => {
     }
 
 
-    const onFinish = (values) => {
+    const onFinish = async (values) => {
         values = { ...values, ...selectedAddress }
         const { dob, confirmPassword, password, phone } = values
 
@@ -301,15 +311,60 @@ const Signup = () => {
             return
         }
 
-        
-        console.log(values);
+
         if (confirmPassword && (confirmPassword === password)) {
             delete values.confirmPassword
         } else notification.error({
             message: 'Password not matched'
         })
+        const updateValues = {
+            basicInformation: {
+                firstName: values.firstName,
+                lastName: values.lastName,
+                gender: values.gender,
+                dob: values.dob,
+                createProfileFor: values.createProfileFor,
+                email: values.email,
+                phone: values.phone,
+                maritalStatus: values.maritalStatus
+            },
+            password: password,
+            presentAddress: {
+                division: values.division
+            }
 
+        }
+        try {
+            setLoading(true);
+            const response = await axios.post(API_PATHS.REGISTER, updateValues);
+            const { token } = response.data.data;
+            cookies.set('token', token, { path: '/' });
+            setSuccess(true);
+            setLoading(false);
+            login(response.data.data.user);
+            notification.success({
+                message: 'Success',
+                description: 'Account created successfully',
+            });
+            router.push('/dashboard');
 
+        } catch (error) {
+            if (error.response) {
+                const status = error.response.status;
+                const data = error.response.data;
+
+                if (status === 400) {
+                    notification.error({
+                        message: 'Error',
+                        description: data.message || 'User not found',
+                    });
+                }
+            }
+        }
+        finally {
+            setLoading(false);
+        }
+        // router.push('/dashboard');
     }
 
     const onFinishFailed = (errorInfo) => {
@@ -339,9 +394,8 @@ const Signup = () => {
                     </div>
                     <div className='mt-5'>
                         <Button
-                            type=''
+                            loading={loading}
                             htmlType='submit'
-                            className='w-full'
                         >
                             Create Account
                         </Button>

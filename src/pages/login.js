@@ -42,8 +42,7 @@ const Login = () => {
             cookies.set('token', token, { path: '/' });
             setSuccess(true);
             setLoading(false);
-            login(response.data.data.user);
-            return console.log(response.data.data.user)
+            login(response.data.data.basicInformation);
             router.push('/dashboard');
         } catch (error) {
             setError(true);

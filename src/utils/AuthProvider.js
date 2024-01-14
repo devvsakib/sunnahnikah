@@ -1,11 +1,12 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 const AuthContext = createContext();
-
+import { useRouter } from 'next/router';
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [cookies, setCookie, removeCookie] = useCookies(['token']);
-
+    const router = useRouter();
+    
     const login = (userData) => {
         setUser(userData);
     };
@@ -13,6 +14,7 @@ export const AuthProvider = ({ children }) => {
     const logout = () => {
         removeCookie('token', { path: '/' });
         setUser(null);
+        router.push('/');
     };
 
     const isLogged = () => {
@@ -29,7 +31,7 @@ export const AuthProvider = ({ children }) => {
 
     return (
         <AuthContext.Provider value={{ user, login, logout, isLogged }}>
-                  {children}
+            {children}
         </AuthContext.Provider>
     );
 };
