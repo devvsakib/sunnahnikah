@@ -2,37 +2,7 @@
 // export const BASE_URL = `${process.env.NEXT_PUBLIC_BASE_URL}`;
 
 export const BASE_API_URL = `${process.env.NEXT_PUBLIC_BASE_API_URL}`;
-/**
 
-router.get("/", getAllUsers);
-router.get("/:userID", getUser);
-router.delete("/:userID", authenticateToken, deleteUser);
-router.patch("/basic-information", authenticateToken, updateBasicInformation);
-router.patch("/partner-expectation", authenticateToken, updatePartnerExpectation);
-router.patch("/family-information", authenticateToken, updateFamilyInformation);
-router.patch("/physical-attributes", authenticateToken, updatePhysicalAttributes);
-router.patch("/address", authenticateToken, updateAddress);
-router.post("/education", authenticateToken, addEducation);
-router.patch("/education/:educationID", authenticateToken, updateEducation);
-router.delete("/education/:educationID", authenticateToken, deleteEducation);
-router.patch("/hobbies", authenticateToken, updateHobbies);
-router.patch("/languages", authenticateToken, updateLanguages);
-router.post("/career", authenticateToken, addCareer);
-router.patch("/career/:careerID", authenticateToken, updateCareer);
-router.delete("/career/:careerID", authenticateToken, deleteCareer);
-router.patch("/lifestyle", authenticateToken, updateLifestyle);
-router.patch("/personal-attitude", authenticateToken, updatePersonalAttitude);
-router.patch("/spiritual-social-bg", authenticateToken, updateSpiritualSocialBg);
-router.get("/shortlist", authenticateToken, getShortlistedUsers);
-router.patch("/shortlist", authenticateToken, shortlistUser);
-router.patch("/remove-from-shortlist", authenticateToken, removeUserFromShortlist);
-router.get("/interest", authenticateToken, getMyInterestUsers);
-router.patch("/interest", authenticateToken, addInterestedUser);
-router.patch("/remove-from-interest", authenticateToken, removeUserFromMyInterest);
-// this will be done by admin
-router.patch("/account-type", authenticateToken, updateAccountType);
-
- */
 export const API_PATHS = {
     LOGIN: BASE_API_URL + 'auth/login',
     REGISTER: BASE_API_URL + 'auth/register',

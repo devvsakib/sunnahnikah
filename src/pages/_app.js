@@ -12,6 +12,8 @@ import Head from 'next/head'
 import { ConfigProvider } from 'antd';
 import ProviderContainer from '@/utils/ProviderContainer';
 import { useTheme } from '../utils/ThemeProvider';
+import { BrowserRouter } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 function MyApp({ Component, pageProps }) {
     return (
@@ -50,6 +52,12 @@ function MyAppComponent({ Component, pageProps }) {
             colorBgElevated: '#1E1E1E',
         }
     }
+    const [isServer, setIsServer] = useState(true);
+    useEffect(() => {
+        setIsServer(false);
+    }, []);
+    if (isServer) return null;
+
     return <>
         <Head>
             <title>SunnahNikkah - Find your Habibi</title>

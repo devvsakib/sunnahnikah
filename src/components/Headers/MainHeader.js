@@ -14,6 +14,10 @@ const menus = [
         url: '/users'
     },
     {
+        title: 'Dashboard',
+        url: '/dashboard'
+    },
+    {
         title: 'Contact',
         url: '/contact'
     }

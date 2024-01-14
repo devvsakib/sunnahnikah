@@ -77,12 +77,12 @@ const Biodata = () => {
 
                 <div className="px-5 grid md:grid-cols-2 gap-5 my-10">
                     {
-                        filteredUser.length === 0 ?
+                        (filteredUser.length === 0 && !filteredUser) ?
                             <div className="flex justify-center items-center">
                                 <h1 className="text-2xl font-bold text-center">No User Found</h1>
                             </div>
                             :
-                            filteredUser.map((user, idx) => <ProfileCard user={user} key={idx} />)
+                            filteredUser?.map((user, idx) => <ProfileCard user={user} key={idx} />)
                     }
 
                 </div>
