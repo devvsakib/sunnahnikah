@@ -10,8 +10,8 @@ const menus = [
         url: '/'
     },
     {
-        title: 'Users',
-        url: '/users'
+        title: 'Biodata',
+        url: '/biodata'
     },
     {
         title: 'Dashboard',
